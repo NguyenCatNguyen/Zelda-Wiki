@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/6443be5758.js" crossorigin="anonymous"></script>
+    <title>The Legend of Zelda</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href ="index.html"  class="logo">
+                <img src="./Assets/Zelda_logo.png" alt="" class="logo__img">
+            </a>
+            <form action="">
+                <input type="text" placeholder="Search..." class="search__bar">
+            </form>
+            <ul class="nav_list">
+                <li class="links">
+                    <i class="fa-solid fa-magnifying-glass" id="search" class="link__icon"></i>
+                </li>
+                
+                <li class="links">
+                    <i class="fa-solid fa-sort" id="sort" class="link__icon"></i>
+                </li>
+                
+                <li class="links">
+                    <i class="fa-solid fa-heart" id="favorite" class="link__icon"></i>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="landing" onclick="start_function()">
+            <img src="./Assets/Zelda_loading.gif" class="landing__logo" alt="">
+            <h1 class="title">Zelda Wiki: Your Portal to Hyrule</h1>
+            <p class="sub-title">Looking for something specific? You've come to the right place. All the compendium 
+                you seek, in one convenient location. Start exploring by browsing categories or searching for a specific 
+                entry by name or ID.</p>
+            <button class="start_btn">Get Start</button>
+        </section>
+        <section class="category__nav">
+            <div class="category__List">
+                <div class="category">
+                    <img src="./Assets/icon/Creatures.png" id="creaturesButton" alt="" class="category__img">
+                </div>
+                <div class="category">
+                    <img src="./Assets/icon/Equipment.png" id="equipmentButton" alt="" class="category__img">
+                </div>
+                <div class="category">
+                    <img src="./Assets/icon/Materials.png" id="materialsButton" alt="" class="category__img">
+                </div>
+                <div class="category">
+                    <img src="./Assets/icon/Monsters.png"  id="monstersButton" alt="" class="category__img">
+                </div>
+                <div class="category">
+                    <img src="./Assets/icon/Treasure.png"  id="treasureButton" alt="" class="category__img">
+                </div>
+            </div>
+        </section>
+        <section class="loading__state">
+            <img src="./Assets/loading.gif" class="loading__img" alt="">
+        </section>
+        <section class="entries">
+            <div class="entries__lists"> 
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
