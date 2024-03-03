@@ -13,60 +13,64 @@
 
 .bold{
     font-weight: bold;
+    color: var(--blueHighlight--);
 }
+
 .modal{
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
+    background-color: #F3F1F5;
 }
+
 
 .modal__tab{
-
-    background-color:var(--bg--);
-    margin: 0px 50px;
-    padding: 50px;
-    max-width: 1550px;
+    position: relative;;
+    background-color: var(--bg--);
+    max-width: 1200px;
     color: white;
+    padding: 36px;
+    font-size: 16px;
+    margin: 10px 40px;
     border-radius: 10px;
-
-}
-
-.modal__img--cover{
-    background-color:white;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.modal__img{
-    width: 350px;
-
 }
 
 .modal__description{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 24px;
-    line-height: 1.6;
-
+    
+}
+.modal__img{
+    border: solid 3px var(--blueHighlight--);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.modal__right{
+    width: 70%;
+    padding-left: 20px;
 }
 
 .modal__name{
     font-size: 36px;
 }
 
-.modal__info{
-    margin-left: 20px;
-}
-
-.fa-x, .fa-heart{
+.fa-x,
+.fa-heart{
     position: absolute;
-    font-size: 24px;
     right: 30px;
+    font-size: 20px;
+    transition: all ease-in-out 300ms;
+    cursor: pointer;
 }
 
-.fa-x{
-    top: 30px;
+.fa-x:hover,
+.fa-heart:hover{
+    transform: scale(1.1);
+}
+
+
+.fa-heart:hover,
+.favorite__active{
+    color: rgb(249, 70, 70);
 }

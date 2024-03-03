@@ -22,6 +22,24 @@ function itemHTML(entry){
     `
 }
 
+// Get modal html
+function modalHTML(entry){
+    return`
+    <div class="modal__left">
+                    <figure class="modal__img--cover">
+                        <img class="modal__img" src="${entry.image}" alt="">
+                    </figure>
+                </div>
+                <div class="modal__right">
+                    <div class="modal__name"><span class="bold">Name: </span>${entry.name}</div>
+                    <div class="modal__id"><span class="bold">ID: </span>${entry.id}</div>
+                    <div class="modal__category"><span class="bold">Category: </span>${entry.category}</div>
+                    <div class="common__location"><span class="bold"> Common Location: </span>${entry.common_locations}</div>
+                    <p class="modal__discription"><span class="bold">Description: </span>${entry.description}</p>
+                </div>
+    `
+}
+
 
 async function main(){
     const entries = (await fetch("https://botw-compendium.herokuapp.com/api/v3/compendium/all"));
