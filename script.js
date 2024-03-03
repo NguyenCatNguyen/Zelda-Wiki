@@ -1,16 +1,19 @@
 /*
 - Get all entries: https://botw-compendium.herokuapp.com/api/v3/compendium/all
 - Get category entries: https://botw-compendium.herokuapp.com/api/v3/compendium/category/<category>
+- Get entry with ID:  https://botw-compendium.herokuapp.com/api/v3/compendium/entry/<id>
 
 */
 
 // Initial variable
 const entryList = document.querySelector(".entries__lists")
+const category_list = document.querySelectorAll(".category")
+const entry_Data = document.querySelector(".modal__description")
 
 // Get entry data
 function itemHTML(entry){
     return`
-    <div class="entries__card">
+    <div class="entries__card" onclick="showModal(${entry.id})">
                     <img src="${entry.image}"" alt="" class="entry__img">
                     <div class="entry__info">
                         <p class="entry__id">${entry.id}</p>
@@ -41,6 +44,7 @@ function modalHTML(entry){
 }
 
 
+// Data Fetch all data
 async function main(){
     const entries = (await fetch("https://botw-compendium.herokuapp.com/api/v3/compendium/all"));
     const entriesData = await entries.json(); //Convert the data to JSON
@@ -50,8 +54,6 @@ async function main(){
     
 }
 
-
-const category_list = document.querySelectorAll(".category")
 // Fetch Category button 
 async function FetchCategory(category){
     const entries = await fetch(`https://botw-compendium.herokuapp.com/api/v3/compendium/category/${category}`)
@@ -62,12 +64,31 @@ async function FetchCategory(category){
     entryList.innerHTML = entriesArray.map((entry)=>itemHTML(entry)).join("");
 }
 
+async function showModal(id){
+    // const entry = await fetch(`https://botw-compendium.herokuapp.com/api/v3/compendium/entry/${id}`)
+    // const entryData = await entry.json();
+    // entry_Data.innerHTML = console.log(entryData.map((entry)=>itemHTML(entry)).join(""));
+    // document.querySelector("header").classList.add("hidden");
+    document.querySelector("header").classList.add("disappear");
+    document.querySelector(".category__nav").classList.add("disappear");
+    document.querySelector(".entries").classList.add("disappear");
+    document.querySelector(".modal").classList.remove("disappear");
+}
+
+// Close Modal
+function closeModal(){
+    document.querySelector("header").classList.remove("disappear");
+    document.querySelector(".category__nav").classList.remove("disappear");
+    document.querySelector(".entries").classList.remove("disappear");
+    document.querySelector(".modal").classList.add("disappear");
+}
+
+
 // Loading screen
 function showLoadingScreen(element) {
     // Add loading class to the element
     let elementClass = querySelector(`.${element}`);
     elementClass.classList.add('loading');
-
     // Remove loading class after the specified duration
     setTimeout(() => element.classList.remove('loading'), 2000);
 }
@@ -80,6 +101,7 @@ async function start_function(){
     document.querySelector(".nav_list").classList.add("appear");
     document.querySelector(".entries").classList.add("visible");
 }
+
 
 // Search Bar Function
 
