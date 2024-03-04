@@ -1,7 +1,7 @@
 # Zelda Compendium
 A web application that display `The Legend of Zelda: Breath of the Wild` compendium. The compendium contains all the information about the creatures, monsters, materials, equipment, and more in the game. The website is built using HTML, CSS, and JavaScript. The data is fetched from the Hyrule Compendium API.
 ## Live Site
-- Visit the website [here](https://nguyencatnguyen.github.io/Zelda-Wiki/)
+- Visit the website [here](https://nguyencatnguyen.github.io/Zelda-Wiki/index.html)
 - View the source code [here](https://github.com/NguyenCatNguyen/Zelda-Wiki)
 
 ## Why I Build This
