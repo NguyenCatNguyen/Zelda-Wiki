@@ -9,6 +9,7 @@
 const entryList = document.querySelector(".entries__lists")
 const category_list = document.querySelectorAll(".category")
 const entry_Data = document.querySelector(".modal__description")
+let scrollPosition = 0; // Set origin position
 
 // Get entry data
 function itemHTML(entry){
@@ -53,9 +54,30 @@ async function main(){
     entryList.innerHTML = entriesArray.map((entry)=>itemHTML(entry)).join("");
     
 }
+document.querySelector('#filter').addEventListener('change', filter);
+
+//Filter Entry
+async function filter(e){
+    loading();
+    const entries = await fetch("https://botw-compendium.herokuapp.com/api/v3/compendium/all");
+    const entriesData = await entries.json(); //Convert the data to JSON
+
+    let value = e.target.value; // Get the value of the selected option
+    let sortedData;
+    if(value === 'ALPHABET_ORDER'){
+        sortedData = entriesData.data.sort((a,b)=> a.name.localeCompare(b.name));    
+    }else if (value === 'ID_HIGH'){
+        sortedData = entriesData.data.sort((a,b)=> b.id - a.id);    
+    }else if(value === 'ID_LOW'){
+        sortedData = entriesData.data.sort((a,b)=> a.id - b.id);    
+    }
+    // Access the data and sort it base on ID
+    entryList.innerHTML = sortedData.map((entry)=>itemHTML(entry)).join("");
+}
 
 // Fetch Category button 
 async function FetchCategory(category){
+    loading();
     const entries = await fetch(`https://botw-compendium.herokuapp.com/api/v3/compendium/category/${category}`)
     const entriesData = await entries.json();
 
@@ -65,10 +87,12 @@ async function FetchCategory(category){
 }
 
 async function showModal(id){
-    // const entry = await fetch(`https://botw-compendium.herokuapp.com/api/v3/compendium/entry/${id}`)
-    // const entryData = await entry.json();
-    // entry_Data.innerHTML = console.log(entryData.map((entry)=>itemHTML(entry)).join(""));
-    // document.querySelector("header").classList.add("hidden");
+    const entry = await fetch(`https://botw-compendium.herokuapp.com/api/v3/compendium/entry/${id}`)
+    const entryData = await entry.json();
+    const entryView = entryData.data;
+    entry_Data.innerHTML = modalHTML(entryView)
+    scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    // Close downt the current table before display modal
     document.querySelector("header").classList.add("disappear");
     document.querySelector(".category__nav").classList.add("disappear");
     document.querySelector(".entries").classList.add("disappear");
@@ -77,21 +101,18 @@ async function showModal(id){
 
 // Close Modal
 function closeModal(){
+
+    document.querySelector(".modal").classList.add("disappear");
+
     document.querySelector("header").classList.remove("disappear");
     document.querySelector(".category__nav").classList.remove("disappear");
     document.querySelector(".entries").classList.remove("disappear");
-    document.querySelector(".modal").classList.add("disappear");
+    window.scrollTo(0, scrollPosition);
+    
 }
 
 
-// Loading screen
-function showLoadingScreen(element) {
-    // Add loading class to the element
-    let elementClass = querySelector(`.${element}`);
-    elementClass.classList.add('loading');
-    // Remove loading class after the specified duration
-    setTimeout(() => element.classList.remove('loading'), 2000);
-}
+
 
 // Get start button 
 async function start_function(){
@@ -102,6 +123,30 @@ async function start_function(){
     document.querySelector(".entries").classList.add("visible");
 }
 
+
+//Active search__bar
+function activeSearch(){
+    main();
+    document.querySelector('.search__bar').classList.remove('hidden');
+    document.querySelector(".search__bar").classList.add('appear');
+    document.querySelector("#filter").classList.remove('hidden');
+    document.querySelector("#filter").classList.add('appear');
+    document.querySelector(".category__List").classList.remove("appear")
+    document.querySelector(".category__List").classList.add("hidden")
+
+}
+
+//Loading state
+function loading(){
+    document.querySelector(".entries").classList.remove("visible");
+    document.querySelector(".loading__state").classList.remove("disappear");
+    
+    // Show entries after wait
+    setTimeout(function() {
+        document.querySelector(".loading__state").classList.add("disappear");
+        document.querySelector(".entries").classList.add("visible");
+    }, 2000);
+}
 
 // Search Bar Function
 

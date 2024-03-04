@@ -15,24 +15,27 @@
                 <img src="./Assets/Zelda_logo.png" alt="" class="logo__img">
             </a>
             <form action="">
-                <input type="text" placeholder="Search..." class="search__bar">
+                <input type="text" placeholder="Search..." class="search__bar hidden">
+                
             </form>
             <ul class="nav_list">
                 <li class="links">
-                    <i class="fa-solid fa-magnifying-glass" id="search" class="link__icon"></i>
+                    <i class="fa-solid fa-magnifying-glass link__icon" id="search" onclick="activeSearch()"></i>
                 </li>
                 
                 <li class="links">
-                    <i class="fa-solid fa-sort" id="sort" class="link__icon"></i>
-                </li>
-                
-                <li class="links">
-                    <i class="fa-solid fa-heart" id="favorite" class="link__icon"></i>
+                    <i class="fa-solid fa-heart link__icon" id="favorite"></i>
                 </li>
             </ul>
         </nav>
     </header>
     <main>
+        <select id="filter" class="hidden" >
+            <option value="disabled selected">Sort</option>
+            <option value="ALPHABET_ORDER">Alphabet</option>
+            <option value="ID_LOW">ID, Low to High</option>
+            <option value="ID_HIGH">ID, High to Low</option>
+        </select>
         <section class="landing" onclick="start_function()">
             <img src="./Assets/Zelda_loading.gif" class="landing__logo" alt="">
             <h1 class="title">Zelda Wiki: Your Portal to Hyrule</h1>
@@ -60,7 +63,7 @@
                 </div>
             </div>
         </section>
-        <section class="loading__state">
+        <section class="loading__state disappear">
             <img src="./Assets/loading.gif" class="loading__img" alt="">
         </section>
         <section class="entries">
@@ -89,6 +92,15 @@
         </section>
     </main>
     <footer>
+        <figure class="footer__logo">
+            <img src="./Logo_black.png" class="footer__logo--img" alt="">
+        </figure>
+        <div class="footer__social--list">
+            <a href="https://github.com/NguyenCatNguyen/Zelda-Wiki" class="footer_link" target="_blank">Github</a>
+            <a href="https://www.linkedin.com/in/cat-nguyen-626621235/" class="footer_link" target="_blank">LinkedIn</a>
+            <a href="https://nguyencatnguyen.github.io/CatNguyen/Main/index.html" class="footer_link" target="_blank">My website</a>
+        </div>
+        <div class="footer__copyright">Copyright @ 2024 Cat Nguyen</div>
 
     </footer>
 </body>

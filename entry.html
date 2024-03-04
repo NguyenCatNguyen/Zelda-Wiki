@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="modal.css">
 </head>
 <body>
-    <section class="modal">
+    <!-- <section class="modal">
         <div class="modal__tab">
             <i id="close__btn" class="fa-solid fa-x" onclick="closeModal()"></i>
             <div class="modal__description">
@@ -22,11 +22,23 @@
                     <div class="modal__id"><span class="bold">ID: </span>123</div>
                     <div class="modal__category"><span class="bold">Category: </span>Monsters</div>
                     <div class="common__location"><span class="bold"> Common Location: </span>                       location locaation                       location</div>
-                    <p class="modal__discription"><span class="bold">Description: </span>These fearsome monsters have lived in Hyrule since ancient times. Their ability to breathe fire makes White-Maned Lynels among the toughest of the species; each one of their attacks is an invitation to the grave. There are so few eyewitness accounts of this breed because a White-Maned Lynel is not one to let even simple passersby escape with their lives.</p>
+                    <p class="modal__para"><span class="bold">Description: </span>These fearsome monsters have lived in Hyrule since ancient times. Their ability to breathe fire makes White-Maned Lynels among the toughest of the species; each one of their attacks is an invitation to the grave. There are so few eyewitness accounts of this breed because a White-Maned Lynel is not one to let even simple passersby escape with their lives.</p>
                 </div>
             </div>
             <i id="favorite__btn" class="fa-solid fa-heart"></i>
         </div> 
-    </section>
+    </section> -->
+    <div class="container">
+        <input placeholder='Search...' class='js-search' type="text">
+        <i class="fa fa-search"></i>
+      </div>
+
+      <select name="filter" id="filter">
+            <option value="disabled selected">Sort</option>
+            <option value="ALPHABET_ORDER">Alphabet</option>
+            <option value="ID_LOW">ID, Low to High</option>
+            <option value="ID_HIGH">ID, High to Low</option>
+      </select>
+      
 </body>
 </html>
