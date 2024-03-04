@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -72,7 +74,9 @@ nav{
     cursor: pointer;
 }
 
-
+#search:hover{
+    color: var(--blueHighlight--);
+}
 
 /* 
 
@@ -367,15 +371,42 @@ footer{
     align-items: center;
 }
 
-.footer__logo--img{
-    width: 100px;
+.footer__logo{
+    font-size: 50px;
+    font-weight: bold;
+    font-family: "Protest Guerrilla", sans-serif;
 }
 
 .footer__social--list{
     width: 600px;
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: 20px;
+}
+
+.footer_link{
+    position: relative;
+    margin: 25px 0px;
+}
+
+.link__hover-effect:after{ 
+    content: "";
+    position: absolute;
+    height: 3px;
+    background-color: white;
+    width: 0%;
+    bottom: -3px;
+    right:0;
+    transition: all 350ms ease;
+}
+
+
+.link__hover-effect:hover:after{ 
+    width: 100%;
+    left:0;
+}
+
+.footer__copyright{
+    font-size: 16px;
 }
 
 /* 

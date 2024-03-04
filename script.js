@@ -10,7 +10,7 @@ const entryList = document.querySelector(".entries__lists")
 const category_list = document.querySelectorAll(".category")
 const entry_Data = document.querySelector(".modal__description")
 let scrollPosition = 0; // Set origin position
-
+let searchBar = document.querySelector(".search__bar");
 // Get entry data
 function itemHTML(entry){
     return`
@@ -52,7 +52,6 @@ async function main(){
     // Access the data and sort it base on ID
     const entriesArray = entriesData.data.sort((a,b)=>  a.id - b.id);
     entryList.innerHTML = entriesArray.map((entry)=>itemHTML(entry)).join("");
-    
 }
 document.querySelector('#filter').addEventListener('change', filter);
 
@@ -117,10 +116,12 @@ function closeModal(){
 // Get start button 
 async function start_function(){
     document.querySelector(".landing").classList.add("hidden");
+    document.querySelector(".footer").classList.add("hidden");
     await main(); // Wait for main function to finish retrieving data.
     document.querySelector(".category__List").classList.add("appear");
     document.querySelector(".nav_list").classList.add("appear");
     document.querySelector(".entries").classList.add("visible");
+
 }
 
 
@@ -149,6 +150,10 @@ function loading(){
 }
 
 // Search Bar Function
+function onSearchInput(){
+    const searchValue = searchBar.value.toLowerCase();
+}
+
 
 // Run the method
 document.getElementById('equipmentButton').addEventListener('click', () => FetchCategory('equipment'));
@@ -157,4 +162,5 @@ document.getElementById('materialsButton').addEventListener('click', () => Fetch
 document.getElementById('creaturesButton').addEventListener('click', () => FetchCategory('creatures'));
 document.getElementById('monstersButton').addEventListener('click', () => FetchCategory('monsters'));
 
-
+// Search Bar active
+// searchBar.addEventListener("input", onSearchInput);
