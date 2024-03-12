@@ -34,6 +34,7 @@ async function main(){
 }
 ```
 
+
 ### 2. Sort an array of objects by a property value
 ```javascript
 const sortedData = data.sort((a, b) => a.name.localeCompare(b.name));

@@ -36,59 +36,41 @@
             <option value="ID_LOW">ID, Low to High</option>
             <option value="ID_HIGH">ID, High to Low</option>
         </select>
-        <section class="landing" onclick="start_function()">
+        <section class="landing">
             <img src="./Assets/Zelda_loading.gif" class="landing__logo" alt="">
             <h1 class="title">Zelda Wiki: Your Portal to Hyrule</h1>
             <p class="sub-title">Looking for something specific? You've come to the right place. All the compendium 
                 you seek, in one convenient location. Start exploring by browsing categories or searching for a specific 
                 entry by name or ID.</p>
-            <button class="start_btn">Get Start</button>
+            <button class="start_btn" onclick="start_function()">Get Start</button>
         </section>
-        <section class="category__nav">
+        <section class="category__nav hidden">
             <div class="category__List">
-                <div class="category">
+                <div class="category" onclick="cs('creatures')">
                     <img src="./Assets/icon/Creatures.png" id="creaturesButton" alt="" class="category__img">
                 </div>
-                <div class="category">
+                <div class="category" onclick="cs('equipment')">
                     <img src="./Assets/icon/Equipment.png" id="equipmentButton" alt="" class="category__img">
                 </div>
-                <div class="category">
+                <div class="category" onclick="cs('materials')">
                     <img src="./Assets/icon/Materials.png" id="materialsButton" alt="" class="category__img">
                 </div>
-                <div class="category">
+                <div class="category" onclick="cs('monsters')">
                     <img src="./Assets/icon/Monsters.png"  id="monstersButton" alt="" class="category__img">
                 </div>
-                <div class="category">
+                <div class="category" onclick="cs('treasure')">
                     <img src="./Assets/icon/Treasure.png"  id="treasureButton" alt="" class="category__img">
                 </div>
             </div>
         </section>
-        <section class="loading__state disappear">
+        <section class="loading__state hidden">
             <img src="./Assets/loading.gif" class="loading__img" alt="">
         </section>
-        <section class="entries">
+        <section class="entries hidden">
             <div class="entries__lists"> 
             </div>
         </section>
-        <section class="modal disappear">
-            <div class="modal__tab">
-                <i id="close__btn" class="fa-solid fa-x" onclick="closeModal()" ></i>
-                <div class="modal__description">
-                    <div class="modal__left">
-                        <figure class="modal__img--cover">
-                            <img class="modal__img" src="https://botw-compendium.herokuapp.com/api/v3/compendium/entry/white-maned_lynel/image" alt="">
-                        </figure>
-                    </div>
-                    <div class="modal__right">
-                        <div class="modal__name"><span class="bold">Name: </span>White-maned</div>
-                        <div class="modal__id"><span class="bold">ID: </span>123</div>
-                        <div class="modal__category"><span class="bold">Category: </span>Monsters</div>
-                        <div class="common__location"><span class="bold"> Common Location: </span>                       location locaation                       location</div>
-                        <p class="modal__discription"><span class="bold">Description: </span>These fearsome monsters have lived in Hyrule since ancient times. Their ability to breathe fire makes White-Maned Lynels among the toughest of the species; each one of their attacks is an invitation to the grave. There are so few eyewitness accounts of this breed because a White-Maned Lynel is not one to let even simple passersby escape with their lives.</p>
-                    </div>
-                </div>
-                <i id="favorite__btn" class="fa-solid fa-heart"></i>
-            </div> 
+        <section class="modal hidden">
         </section>
     </main>
     <footer class="footer">
@@ -96,7 +78,7 @@
         <div class="footer__social--list">
             <a href="https://github.com/NguyenCatNguyen/Zelda-Wiki" class="footer_link link__hover-effect" target="_blank">Github</a>
             <a href="https://www.linkedin.com/in/cat-nguyen-626621235/" class="footer_link link__hover-effect" target="_blank">LinkedIn</a>
-            <a href="https://nguyencatnguyen.github.io/CatNguyen/Main/index.html" class="footer_link link__hover-effect" target="_blank">My website</a>
+            <a href="https://nguyencatnguyen.github.io/CatNguyen/Main/index.html" class="footer_link link__hover-effect" target="_blank">Profolio</a>
         </div>
         <div class="footer__copyright">Copyright @ 2024 Cat Nguyen</div>
 
