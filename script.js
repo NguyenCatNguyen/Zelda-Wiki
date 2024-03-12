@@ -71,6 +71,8 @@ async function start_function(){
     document.querySelector(".entries").classList.add("fadeIn");
     document.querySelector(".entries").classList.remove("hidden");
     document.querySelector(".nav_list").classList.add("appear");
+    document.querySelector(".landing").classList.add("hidden");
+
 }
 
 //Loading state
